@@ -8,18 +8,15 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int vertpad            = 0;       /* vertical padding of bar */
 static const int sidepad            = 0;       /* horizontal padding of bar */
-static const char *fonts[]          = { "LiberationMono-Bold:size=10:antialias=true", "Font Awesome 5 Free-Regular-400.otf","Font Awesome 5 Brands-Regular-400.otf","Font Awesome 5 Free-Solid-900.otf" };
-static const char dmenufont[]       = "LiberationMono:size=10:antialias=true";
-static const char col_gray1[]       = "#4e4e4e";
+static const char *fonts[]          = { "DroidSansMono NF:size=10:antialias=true"};
+static const char dmenufont[]       = "DroidSansMono NF:size=10:antialias=true";
+static const char col_gray1[]       = "#0f0115";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#7d191e";
-static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
-};
+static const char col_cyan[]        = "#c61340";
+static const char col_urgborder[]   = "#ff0000";
+#include "/home/ayusman/.cache/wal/colors-wal-dwm.h"
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
@@ -41,8 +38,8 @@ static const int resizehints = 0;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[ MODE :  ]",      tile },    /* first entry is default */
-	{ "[ MODE :  ]",      NULL },    /* no layout function means floating behavior */
+	{ "[ MODE :  ]",      tile },    /* first entry is default */
+	{ "[ MODE :  ]",      NULL },    /* no layout function means floating behavior */
 	{ "[ MODE :  ]",      monocle },
 	{ "TTT",      bstack },
 	{ "===",      bstackhoriz },
@@ -59,18 +56,20 @@ static const Layout layouts[] = {
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "urxvt", NULL };
+static const char *dmenucmd[] = { "dmen.sh", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 static const char *flameshotcmd[] = { "flameshot", "gui", NULL };
 static const char *killxcmd[] = { "pkill", "-15", "x", NULL };
 static const char *ytcmd[] = { "yt.sh", "-r", NULL };
 static const char *ytaudiocmd[] = { "ytaudio.sh", "-r", NULL };
 static const char *redytcmd[] = { "redyt", NULL};
+static const char *browsercmd[] = { "chromium", "--no-sandbox", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,			XK_w,	   spawn,	   {.v = browsercmd } },
 	{ MODKEY,			XK_Print,  spawn,	   {.v = flameshotcmd } },
 	{ MODKEY,			XK_y,	   spawn,	   {.v = ytcmd } },
 	{ MODKEY|ShiftMask,		XK_y,	   spawn,	   {.v = ytaudiocmd } },
