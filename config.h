@@ -1,22 +1,22 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const unsigned int gappx	    = 6;	/* gaps between windows */
+static const unsigned int borderpx  = 0;        /* border pixel of windows */
+static const unsigned int gappx	    = 25;	/* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int vertpad            = 0;       /* vertical padding of bar */
 static const int sidepad            = 0;       /* horizontal padding of bar */
-static const char *fonts[]          = { "DroidSansMono NF:size=10:antialias=true"};
-static const char dmenufont[]       = "DroidSansMono NF:size=10:antialias=true";
+static const char *fonts[]          = { "Hack NF:size=8:antialias=true"};
+static const char dmenufont[]       = "Hack NF:size=8:antialias=true";
 static const char col_gray1[]       = "#0f0115";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#c61340";
 static const char col_urgborder[]   = "#ff0000";
-#include "/home/ayusman/.cache/wal/colors-wal-dwm.h"
+#include "/home/p1xel/.cache/wal/colors-wal-dwm.h"
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
@@ -63,7 +63,7 @@ static const char *killxcmd[] = { "pkill", "-15", "x", NULL };
 static const char *ytcmd[] = { "yt.sh", "-r", NULL };
 static const char *ytaudiocmd[] = { "ytaudio.sh", "-r", NULL };
 static const char *redytcmd[] = { "redyt", NULL};
-static const char *browsercmd[] = { "chromium", "--no-sandbox", NULL };
+static const char *browsercmd[] = { "brave", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
